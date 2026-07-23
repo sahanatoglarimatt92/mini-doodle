@@ -1,0 +1,286 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+    background: #f5f7fb;
+    color: #1f2937;
+    font-family: Arial, sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 32px;
+    background: white;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.navbar h1 {
+    margin: 0;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: #4b5563;
+    text-decoration: none;
+}
+
+.nav-links a.active {
+    color: #2563eb;
+    font-weight: 700;
+}
+
+.container {
+    width: min(1200px, 95%);
+    margin: 32px auto;
+}
+
+.card {
+    padding: 20px;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.form {
+    display: grid;
+    gap: 16px;
+    max-width: 500px;
+    margin-bottom: 24px;
+}
+
+.form label {
+    display: grid;
+    gap: 6px;
+}
+
+.form input,
+.form select,
+.form textarea {
+    padding: 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+}
+
+button {
+    padding: 10px 16px;
+    color: white;
+    background: #2563eb;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+.error {
+    color: #b91c1c;
+}
+
+.success {
+    color: #15803d;
+}
+
+.card-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 12px;
+}
+
+.status {
+    padding: 5px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.status.free {
+    color: #166534;
+    background: #dcfce7;
+}
+
+.status.booked {
+    color: #991b1b;
+    background: #fee2e2;
+}
+
+.danger-button {
+    background: #dc2626;
+}
+
+.danger-button:hover {
+    background: #b91c1c;
+}
+
+.time-slot-card p {
+    margin: 8px 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.participants-fieldset {
+    display: grid;
+    gap: 10px;
+    padding: 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+}
+
+.checkbox-label {
+    display: flex !important;
+    grid-template-columns: none !important;
+    align-items: center;
+    gap: 10px;
+}
+
+.checkbox-label input {
+    width: auto;
+}
+
+.meeting-card ul {
+    padding-left: 20px;
+}
+
+.meeting-card .danger-button {
+    margin-top: 12px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.participants-fieldset {
+    display: grid;
+    gap: 10px;
+    padding: 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+}
+
+.checkbox-label {
+    display: flex !important;
+    align-items: center;
+    gap: 10px;
+}
+
+.checkbox-label input {
+    width: auto;
+}
+
+.meeting-card ul {
+    padding-left: 20px;
+}
+
+.meeting-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+}
+
+.reschedule-section {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid #d1d5db;
+}
+
+.reschedule-section label {
+    display: grid;
+    gap: 6px;
+}
+
+.secondary-button {
+    background: #6b7280;
+}
+
+.secondary-button:hover {
+    background: #4b5563;
+}
+
+.danger-button {
+    background: #dc2626;
+}
+
+.danger-button:hover {
+    background: #b91c1c;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.availability-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.selection-count {
+    margin: 0;
+    font-weight: 600;
+}
+
+.availability-card {
+    position: relative;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.availability-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+}
+
+.availability-card .status {
+    display: inline-block;
+    margin-bottom: 12px;
+}
+
+.availability-card p {
+    margin: 8px 0;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 32px;
+}
+
+.empty-state h3 {
+    margin-top: 0;
+}
+
+.user-selection-actions {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.user-selection-actions .secondary-button {
+    min-width: 110px;
+}

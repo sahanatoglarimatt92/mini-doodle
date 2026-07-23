@@ -1,76 +1,75 @@
 # Mini Doodle
 
-A full-stack meeting scheduling application inspired by Doodle, built with **Java 21**, **Spring Boot**, **React**, **PostgreSQL**, and **Docker**.
+A full-stack meeting scheduling application inspired by **Doodle**, built using **Java 21**, **Spring Boot**, **React**, **PostgreSQL**, and **Docker**.
 
-The application enables users to create calendars, manage availability, schedule meetings, and view free/busy time slots through a modern web interface.
+The application enables users to create calendars, manage available time slots, schedule meetings, add participants, and check availability through a modern web interface.
 
 ---
 
-## Features
+# ✨ Highlights
 
-### Backend
+- Full-stack Meeting Scheduling Application
+- Java 21 & Spring Boot 3
+- React + Vite Frontend
+- PostgreSQL Database
+- Flyway Database Migration
+- Docker Compose for Local Development
+- RESTful APIs
+- Swagger/OpenAPI Documentation
+- Layered Architecture
+- Global Exception Handling & Validation
+
+---
+
+# Features
+
+## Backend
 
 - User Management
 - Calendar Management
 - Time Slot Management
 - Meeting Scheduling
-- Add/Remove Participants
+- Add / Remove Participants
 - Cancel Meetings
 - Reschedule Meetings
-- Check Availability
+- Availability Management
 - REST APIs
-- Global Exception Handling
 - Validation
-- Swagger API Documentation
+- Global Exception Handling
 - Spring Boot Actuator
+- Swagger API Documentation
 - Flyway Database Migration
 
-### Frontend
+## Frontend
 
 - React + Vite
 - Responsive UI
 - Calendar View
 - Time Slot Management
 - Meeting Scheduling
-- Availability Display
+- Availability View
 - REST API Integration
 
 ---
 
-## Tech Stack
+# Tech Stack
 
-### Backend
-
-- Java 21
-- Spring Boot 3
-- Spring Web
-- Spring Data JPA
-- PostgreSQL
-- Flyway
-- Maven
-
-### Frontend
-
-- React
-- Vite
-- JavaScript
-- HTML
-- CSS
-
-### DevOps
-
-- Docker
-- Docker Compose
-
-### Documentation
-
-- Swagger / OpenAPI
+| Category | Technology |
+|----------|------------|
+| Backend | Java 21, Spring Boot 3 |
+| Frontend | React, Vite |
+| Database | PostgreSQL |
+| ORM | Spring Data JPA |
+| Database Migration | Flyway |
+| Build Tool | Maven |
+| DevOps | Docker, Docker Compose |
+| Documentation | Swagger / OpenAPI |
 
 ---
 
-## Project Structure
+# Project Structure
 
-```
+```text
 mini-doodle
 │
 ├── backend
@@ -78,14 +77,22 @@ mini-doodle
 │
 ├── frontend
 │
+├── screenshots
+│   ├── users.png
+│   ├── time-slots.png
+│   ├── meetings.png
+│   └── availability.png
+│
 ├── docker-compose.yml
 │
-└── README.md
+├── README.md
+│
+└── .gitignore
 ```
 
 ---
 
-# Getting Started
+# 🚀 Getting Started
 
 ## Prerequisites
 
@@ -110,15 +117,13 @@ cd mini-doodle
 
 ---
 
-# Start PostgreSQL
-
-Run PostgreSQL using Docker Compose.
+## Start PostgreSQL
 
 ```bash
 docker compose up -d
 ```
 
-Stop containers
+Stop services
 
 ```bash
 docker compose down
@@ -126,27 +131,21 @@ docker compose down
 
 ---
 
-# Run Backend
-
-Navigate to the backend.
+## Run Backend
 
 ```bash
 cd backend/scheduling-service
-```
 
-Run the application.
-
-```bash
 mvn spring-boot:run
 ```
 
-Backend runs on
+Backend
 
 ```
 http://localhost:8080
 ```
 
-Swagger UI
+Swagger
 
 ```
 http://localhost:8080/swagger-ui/index.html
@@ -160,29 +159,19 @@ http://localhost:8080/actuator/health
 
 ---
 
-# Run Frontend
+## Run Frontend
 
 Open another terminal.
 
-Navigate to frontend.
-
 ```bash
 cd frontend
-```
 
-Install dependencies.
-
-```bash
 npm install
-```
 
-Run application.
-
-```bash
 npm run dev
 ```
 
-Frontend runs on
+Frontend
 
 ```
 http://localhost:5173
@@ -190,7 +179,110 @@ http://localhost:5173
 
 ---
 
-# API Documentation
+# 🏗️ Architecture
+
+The application follows a layered architecture where the React frontend communicates with the Spring Boot backend through REST APIs. Business logic is handled in the service layer, while Spring Data JPA manages persistence to PostgreSQL.
+
+```text
+                           +----------------------+
+                           |    React + Vite UI   |
+                           +----------+-----------+
+                                      |
+                                      | HTTP / REST
+                                      ▼
+                     +----------------------------------+
+                     | Spring Boot Scheduling Service   |
+                     +----------------------------------+
+                     | Controllers                      |
+                     |----------------------------------|
+                     | UserController                   |
+                     | CalendarController               |
+                     | TimeSlotController               |
+                     | MeetingController                |
+                     | AvailabilityController           |
+                     +----------------------------------+
+                                      |
+                                      ▼
+                     +----------------------------------+
+                     | Services                         |
+                     |----------------------------------|
+                     | UserService                      |
+                     | CalendarService                  |
+                     | TimeSlotService                  |
+                     | MeetingService                   |
+                     | AvailabilityService              |
+                     +----------------------------------+
+                                      |
+                                      ▼
+                     +----------------------------------+
+                     | Repositories                     |
+                     |----------------------------------|
+                     | Spring Data JPA                  |
+                     +----------------------------------+
+                                      |
+                                      ▼
+                           +----------------------+
+                           |     PostgreSQL       |
+                           +----------------------+
+
+                Flyway ─────► Database Schema Migration
+
+        Docker Compose ───► PostgreSQL Container
+```
+
+---
+
+# 📌 Request Flow
+
+The following diagram illustrates how a meeting is scheduled.
+
+```text
+User
+ │
+ ▼
+React Frontend
+ │
+ │ POST /api/meetings
+ ▼
+MeetingController
+ │
+ ▼
+MeetingService
+ │
+ ├────────► Validate Participants
+ │
+ ├────────► Check Slot Availability
+ │
+ ├────────► Update Time Slot Status
+ │
+ ▼
+MeetingRepository
+ │
+ ▼
+PostgreSQL
+ │
+ ▼
+Meeting Response
+ │
+ ▼
+React UI
+```
+
+---
+
+# 📸 Application Screenshots
+
+| Users | Time Slots |
+|-------|------------|
+| ![](screenshots/users.png) | ![](screenshots/time-slots.png) |
+
+| Meetings | Availability |
+|----------|--------------|
+| ![](screenshots/meetings.png) | ![](screenshots/availability.png) |
+
+---
+
+# 📡 API Documentation
 
 Swagger UI
 
@@ -200,23 +292,52 @@ http://localhost:8080/swagger-ui/index.html
 
 ---
 
+# Sample API
+
+### Create Meeting
+
+**POST** `/api/meetings`
+
+#### Request
+
+```json
+{
+  "title": "Sprint Planning",
+  "calendarId": 1,
+  "participantIds": [2, 3],
+  "timeSlotId": 5
+}
+```
+
+#### Response
+
+```json
+{
+  "id": 12,
+  "title": "Sprint Planning",
+  "status": "SCHEDULED"
+}
+```
+
+---
+
 # Database
 
-The project uses PostgreSQL.
-
-Database schema is managed using **Flyway** migrations.
+- PostgreSQL
+- Spring Data JPA
+- Flyway Database Migration
 
 ---
 
 # Docker
 
-To start required services:
+Start services
 
 ```bash
 docker compose up -d
 ```
 
-To stop services:
+Stop services
 
 ```bash
 docker compose down
@@ -224,50 +345,29 @@ docker compose down
 
 ---
 
-# Screenshots
+# 🚀 Future Enhancements
 
-> Add screenshots of the application here.
-
-Example:
-
-```
-screenshots/
-
-home-page.png
-
-calendar.png
-
-meeting.png
-```
-
----
-
-# Future Enhancements
-
-- Authentication & Authorization
+- JWT Authentication & Authorization
 - Email Notifications
+- Meeting Reminders
 - Recurring Meetings
 - Time Zone Support
-- Meeting Invitations
-- Dockerized Backend & Frontend
-- Kubernetes Deployment
-- CI/CD using GitHub Actions
 - Kafka Integration
-- AWS Deployment
+- Kubernetes Deployment
+- AWS Cloud Deployment
+- CI/CD using GitHub Actions
 
 ---
 
-# Author
+# 👩‍💻 Author
 
 **Sahana Thogaleri Mutt**
 
-GitHub
+**GitHub**
 
 https://github.com/sahanatoglarimatt92
 
-LinkedIn
+**LinkedIn**
 
 https://www.linkedin.com/in/sahana-thogaleri-mutt/
-
----
 

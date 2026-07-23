@@ -1,95 +1,273 @@
-# Mini Doodle – Meeting Scheduling Platform
+# Mini Doodle
 
-A full-stack meeting scheduling application inspired by Doodle.
+A full-stack meeting scheduling application inspired by Doodle, built with **Java 21**, **Spring Boot**, **React**, **PostgreSQL**, and **Docker**.
 
-The application allows users to manage calendars and time slots, schedule meetings, add participants, and find common availability between multiple users.
+The application enables users to create calendars, manage availability, schedule meetings, and view free/busy time slots through a modern web interface.
+
+---
 
 ## Features
 
-### User Management
+### Backend
 
-- Create users
-- View all users
-- View a user by ID
-- Update user information
-- Delete users
+- User Management
+- Calendar Management
+- Time Slot Management
+- Meeting Scheduling
+- Add/Remove Participants
+- Cancel Meetings
+- Reschedule Meetings
+- Check Availability
+- REST APIs
+- Global Exception Handling
+- Validation
+- Swagger API Documentation
+- Spring Boot Actuator
+- Flyway Database Migration
 
-### Calendar Management
+### Frontend
 
-- Create a personal calendar for a user
-- View calendars
-- Update calendar information
-- Delete calendars
+- React + Vite
+- Responsive UI
+- Calendar View
+- Time Slot Management
+- Meeting Scheduling
+- Availability Display
+- REST API Integration
 
-### Time Slot Management
+---
 
-- Create available time slots
-- Update existing time slots
-- Delete free time slots
-- Prevent overlapping time slots
-- Prevent modification or deletion of booked time slots
-- Track slot status as `FREE` or `BOOKED`
-
-### Meeting Scheduling
-
-- Convert a free time slot into a meeting
-- Add meeting title and description
-- Assign an organizer
-- Add or remove participants
-- Reschedule meetings
-- Cancel meetings
-- Prevent double booking
-- Validate participant availability
-
-### Availability Search
-
-- Search availability for one or more users
-- View busy intervals for each user
-- Calculate common free time slots
-- Merge overlapping or adjacent busy intervals
-- Clip meeting intervals to the requested search range
-
-## Technology Stack
+## Tech Stack
 
 ### Backend
 
 - Java 21
-- Spring Boot
+- Spring Boot 3
 - Spring Web
 - Spring Data JPA
-- Hibernate
 - PostgreSQL
 - Flyway
 - Maven
-- JUnit 5
-- Mockito
-- Spring Boot Actuator
-- Swagger / OpenAPI
 
 ### Frontend
 
 - React
 - Vite
-- Axios
 - JavaScript
+- HTML
 - CSS
 
-### Infrastructure
+### DevOps
 
 - Docker
 - Docker Compose
-- PostgreSQL container
 
-## Project Architecture
+### Documentation
 
-The backend follows a feature-oriented layered architecture.
+- Swagger / OpenAPI
 
-```text
-src/main/java/com/sahana/doodle/scheduling
-├── controller
-├── dto
-├── exception
-├── mapper
-├── model
-├── repository
-└── service
+---
+
+## Project Structure
+
+```
+mini-doodle
+│
+├── backend
+│   └── scheduling-service
+│
+├── frontend
+│
+├── docker-compose.yml
+│
+└── README.md
+```
+
+---
+
+# Getting Started
+
+## Prerequisites
+
+Install the following software:
+
+- Java 21
+- Maven 3.9+
+- Node.js 20+
+- npm
+- Docker Desktop
+- Git
+
+---
+
+## Clone Repository
+
+```bash
+git clone https://github.com/sahanatoglarimatt92/mini-doodle.git
+
+cd mini-doodle
+```
+
+---
+
+# Start PostgreSQL
+
+Run PostgreSQL using Docker Compose.
+
+```bash
+docker compose up -d
+```
+
+Stop containers
+
+```bash
+docker compose down
+```
+
+---
+
+# Run Backend
+
+Navigate to the backend.
+
+```bash
+cd backend/scheduling-service
+```
+
+Run the application.
+
+```bash
+mvn spring-boot:run
+```
+
+Backend runs on
+
+```
+http://localhost:8080
+```
+
+Swagger UI
+
+```
+http://localhost:8080/swagger-ui/index.html
+```
+
+Health Endpoint
+
+```
+http://localhost:8080/actuator/health
+```
+
+---
+
+# Run Frontend
+
+Open another terminal.
+
+Navigate to frontend.
+
+```bash
+cd frontend
+```
+
+Install dependencies.
+
+```bash
+npm install
+```
+
+Run application.
+
+```bash
+npm run dev
+```
+
+Frontend runs on
+
+```
+http://localhost:5173
+```
+
+---
+
+# API Documentation
+
+Swagger UI
+
+```
+http://localhost:8080/swagger-ui/index.html
+```
+
+---
+
+# Database
+
+The project uses PostgreSQL.
+
+Database schema is managed using **Flyway** migrations.
+
+---
+
+# Docker
+
+To start required services:
+
+```bash
+docker compose up -d
+```
+
+To stop services:
+
+```bash
+docker compose down
+```
+
+---
+
+# Screenshots
+
+> Add screenshots of the application here.
+
+Example:
+
+```
+screenshots/
+
+home-page.png
+
+calendar.png
+
+meeting.png
+```
+
+---
+
+# Future Enhancements
+
+- Authentication & Authorization
+- Email Notifications
+- Recurring Meetings
+- Time Zone Support
+- Meeting Invitations
+- Dockerized Backend & Frontend
+- Kubernetes Deployment
+- CI/CD using GitHub Actions
+- Kafka Integration
+- AWS Deployment
+
+---
+
+# Author
+
+**Sahana Thogaleri Mutt**
+
+GitHub
+
+https://github.com/sahanatoglarimatt92
+
+LinkedIn
+
+https://www.linkedin.com/in/sahana-thogaleri-mutt/
+
+---
+

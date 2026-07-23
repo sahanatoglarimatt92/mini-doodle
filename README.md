@@ -233,11 +233,13 @@ Example:
 ```
 screenshots/
 
-home-page.png
+user.png
 
-calendar.png
+time slots.PNG
 
-meeting.png
+meetings.png
+
+Availability.PNG
 ```
 
 ---

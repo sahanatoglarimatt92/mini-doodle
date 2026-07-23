@@ -274,11 +274,11 @@ React UI
 
 | Users | Time Slots |
 |-------|------------|
-| ![](screenshots/users.png) | ![](screenshots/time-slots.png) |
+| ![](screenshots/user.PNG) | ![](screenshots/time slots.PNG) |
 
 | Meetings | Availability |
 |----------|--------------|
-| ![](screenshots/meetings.png) | ![](screenshots/availability.png) |
+| ![](screenshots/meetings.PNG) | ![](screenshots/Availability.PNG) |
 
 ---
 
